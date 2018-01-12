@@ -1,3 +1,4 @@
+if(WITH_DOC)
 include(Documentation)
 
 set(LINGUAS
@@ -21,7 +22,6 @@ set(ENTITIES
     ../vendor/${CURRENT_VENDOR}/apt-vendor.ent
 )
 
-if(WITH_DOC)
 add_docbook(apt-doc HTML TEXT ALL
     DOCUMENTS
         guide.dbk
@@ -66,7 +66,6 @@ install(DIRECTORY  ${PROJECT_BINARY_DIR}/doc/doxygen/html
         PATTERN "*.md5" EXCLUDE
 )
 
-endif()
 
 add_docbook(apt-man MANPAGE ALL
     DOCUMENTS
@@ -96,3 +95,5 @@ add_docbook(apt-man MANPAGE ALL
 add_update_po4a(update-po4a po/${PROJECT_NAME}-doc.pot "po/header.pot.txt")
 
 add_subdirectory(examples)
+endif()
+
